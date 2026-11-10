@@ -1,6 +1,6 @@
 ## Model Weights
 
-The checkpoint is available on the GitHub release **v1.0** [here](https://github.com/MohmedSaid390/rf-free-beam-prediction/releases/tag/v1.0).
+The checkpoint is available on the GitHub release **v1.0** [here](https://github.com/MohmedSaid309/rf-free-beam-prediction/releases/tag/v1.0).
 
 | File                     | Model                                                 | Scenario 5 Top-1 / Top-3 / Top-5 | Loader                 | Size    |
 | ------------------------ | ----------------------------------------------------- | -------------------------------- | ---------------------- | ------- |
