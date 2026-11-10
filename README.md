@@ -131,7 +131,7 @@ GPU. The first run builds a cache of the resized frames, which takes a few minut
 
 ## Weights
 
-Three checkpoints are attached to the GitHub release **v1.0**: TODO add link. They are described in
+Three checkpoints are attached to the GitHub release **v1.0**: [here](https://github.com/MohmedSaid309/rf-free-beam-prediction/releases/tag/v1.0). They are described in
 [`weights/README.md`](weights/README.md).
 
 ```bash
