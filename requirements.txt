@@ -1,0 +1,7 @@
+torch>=2.3
+torchvision
+timm>=0.9
+numpy
+pandas
+pillow
+tqdm

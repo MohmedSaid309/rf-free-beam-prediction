@@ -1,0 +1,32 @@
+stage,name,seed,top1,top3,top5,val_loss,command,note
+vision_only,ResNet-50,42,8.32,35.89,53.48,,python v1_resnet50.py,"likely optimization failure at lr 1e-3, not re-tuned"
+vision_only,EfficientNetV2-RW-M,42,43.82,77.53,90.77,,python v2_effnetv2.py,
+vision_only,Swin-T,42,44.95,77.96,88.76,,python v3_swin_tiny.py,
+vision_only,ConvNeXt-Base,42,51.39,82.58,91.55,,python v4_convnext_base_fast.py,
+gps_only,Linear,42,4.18,12.46,18.95,3.2709,python g1_linear.py,
+gps_only,MLP,42,2.61,7.88,13.11,2.888,python g2_mlp.py,
+gps_only,Residual MLP,42,2.61,7.8,11.06,2.4698,python g3_resmlp.py,
+gps_only,FT-Transformer,42,2.61,8.06,16.55,2.9604,python g4_fttransformer.py,early stopped at epoch 27
+fusion_no_residual,Concatenation,42,41.94,72.17,81.88,1.3583,python fusion_v2.py C0 42,
+fusion_no_residual,SE attention,42,43.95,74.83,85.19,1.3591,python fusion.py A1_SE,
+fusion_no_residual,ECA attention,42,45.17,80.4,89.68,1.3529,python fusion.py A4_ECA,
+fusion_no_residual,UFO attention,42,47.08,75.87,85.71,1.3642,python fusion.py A2_UFO,
+fusion_no_residual,SK attention without residual,42,46.91,81.93,90.51,1.3519,python fusion_v2.py S1_SK_NoRes 42,
+fusion_residual,SE attention,42,45.21,78.27,86.98,1.3507,python fusion_v2.py R1_SE_Res 42,
+fusion_residual,ECA attention,42,40.68,71.25,81.27,1.3562,python fusion_v2.py R3_ECA_Res 42,
+fusion_residual,UFO attention,42,50.04,85.98,94.29,1.3361,python fusion_v2.py R2_UFO_Res 42,
+fusion_residual,SK attention,42,53.7,88.5,95.47,1.3387,python fusion.py A3_SK,released checkpoint F_A3_SK_best.pth
+extra_variants,"SK attention, kernel 3 only",42,54.09,84.41,92.99,1.3422,python fusion_v2.py S2_SK_k3 42,not in the paper tables
+extra_variants,"SK attention, kernels 3, 5 and 7",42,50.74,83.71,91.59,1.3648,python fusion_v2.py S3_SK_k357 42,not in the paper tables
+extra_variants,"SK attention, vision only without GPS",42,47.69,80.4,89.85,1.3486,python fusion_v2.py S4_VisSK_noGPS 42,not in the paper tables
+additional_seeds,Concatenation,1,50.61,83.36,92.25,1.3368,python fusion_v2.py C0 1,a run with seed 2 was not completed
+additional_seeds,SE attention,1,52.22,84.89,92.64,1.3344,python fusion_v2.py A1_SE 1,
+additional_seeds,SE attention,2,53.57,86.32,94.56,1.3371,python fusion_v2.py A1_SE 2,
+additional_seeds,SK attention,1,44.47,75.04,86.06,1.343,python fusion_v2.py A3_SK 1,
+additional_seeds,SK attention,2,52.87,87.94,95.82,1.341,python fusion_v2.py A3_SK 2,
+earlier_configuration,Concatenation,,47.95,82.75,92.03,,,"MLP GPS branch, FP32, single run"
+earlier_configuration,Coordinate attention,,47.87,80.31,89.55,,,
+earlier_configuration,SK attention,,48.65,83.8,91.81,,,
+earlier_configuration,EfficientNetV2 with ECA attention,,50.26,84.36,93.99,,,different backbone
+earlier_configuration,UFO attention,,50.52,84.67,94.21,,,
+earlier_configuration,SE attention,,51.31,85.5,93.29,,,
